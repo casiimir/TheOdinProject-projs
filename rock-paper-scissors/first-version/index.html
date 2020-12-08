@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rock, Paper, Scissors - Casiimir, by The Project Odin</title>
+  </head>
+
+  <body>
+    <script>
+    // Draw => 0 | Win => 1 | Lose => -1
+    function playRound(playerSelection, computerSelection) {
+      if (playerSelection === computerSelection) return 0;
+      if (playerSelection === 'r' && computerSelection === 's' || 
+          playerSelection === 'p' && computerSelection === 'r' ||
+          playerSelection === 's' && computerSelection === 'p'
+      ) {
+        return 1;
+      } else {
+        return -1;
+      }
+    }
+    
+    function playerChoiche() {
+      return prompt('Your choiche: ').toLowerCase();
+    }
+    
+    function computerChoiche() {
+      const possibileChoiche = ['r', 'p','s'];
+      const randomChoice = Math.floor(Math.random() * possibileChoiche.length);
+      return possibileChoiche[randomChoice];
+    }
+    
+    function startGame() {
+      let playerPoints = 0, computerPoints = 0;
+      alert(`Type: \n'R' for Rock \n'P' for Paper \n'S' for Scissors`)
+      for (let x = 0; x < 5; x++) {
+        const result = playRound(playerChoiche(), computerChoiche())
+        switch(result) {
+          case 1:
+            alert('Player Win the round');
+            playerPoints++;
+            break;
+          case -1:
+            alert('Computer Win the round');
+            computerPoints++;
+            break;
+          default:
+            alert('We have a Draw!');
+        }
+      }
+      alert (`Computer: ${computerPoints} \n Player: ${playerPoints}`);
+    }
+
+    function xyz () {
+      let cos = 0;
+      if (cos <= 5) {
+        startGame();
+        cos++;
+        console.log(cos)
+      }      
+    }
+    </script>
+  </body>
+</html>

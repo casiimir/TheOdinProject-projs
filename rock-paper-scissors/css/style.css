@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+* {
+  font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+img {
+  height: 40px;
+  margin: 10px;
+}
+
+.btn {
+  border: 1px solid;
+}
+
+.btn:hover {
+  background-color: rgb(255, 191, 161);
+  color: white;
+}
+
+.btn-reset {
+  background-color: rgb(255, 191, 161);
+  font-weight: bold;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.arrow {
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  transform: rotate(30deg);
+}

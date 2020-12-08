@@ -41,12 +41,12 @@ function startGame() {
         if (theWinner === 1) {
           playerPoints++;
           playerPointsEl.innerText = playerPoints;
-          showStatusEl.innerText = `${currentPlayerChoiche} beats ${currentComputerChoiche} `;
+          showStatusEl.innerText = `Your ${currentPlayerChoiche} beats Computer's ${currentComputerChoiche} `;
         }
         else if (theWinner === 0) {
           computerPoints++;
           computerPointsEl.innerText = computerPoints;
-          showStatusEl.innerText = `${currentComputerChoiche} beats ${currentPlayerChoiche} `;
+          showStatusEl.innerText = `Computer ${currentComputerChoiche} beats you`;
         }
         else if (theWinner === -1) {
           showStatusEl.innerText = `${currentComputerChoiche} = ${currentPlayerChoiche} `;

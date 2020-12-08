@@ -37,3 +37,7 @@ img {
   height: 40px;
   transform: rotate(30deg);
 }
+
+.tester {
+  border: 2px solid red;
+}

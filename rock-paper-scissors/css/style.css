@@ -8,13 +8,10 @@ h1 {
   font-weight: bold;
 }
 
-img {
-  height: 40px;
-  margin: 10px;
-}
-
 .btn {
   border: 1px solid;
+  width: 80px;
+  height: 80px;
 }
 
 .btn:hover {
@@ -22,9 +19,25 @@ img {
   color: white;
 }
 
+.btn-choiche {
+  background-image: url('../img/paper.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 10px;
+}
+
+.rock {
+  background-image: url('../img/rock.png');
+}.paper {
+  background-image: url('../img/paper.png');
+}.scissor {
+  background-image: url('../img/scissor.png');
+}
+
 .btn-reset {
   background-color: rgb(255, 191, 161);
   font-weight: bold;
+  height: 40px;
 }
 
 .hidden {

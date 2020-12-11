@@ -26,6 +26,11 @@ function newGame() {
   playerPointsEl.innerText = '0';
   computerPointsEl.innerText = '0';    
   hiddenEl.classList.add('hidden');
+  howManyTimesRematch++;
+
+  if (howManyTimesRematch % 4 === 0) {
+    headerWinnerEl.innerText = "🦆🎁🌹\nTanti cari auguri a te";
+  } 
   return playerPoints = 0, computerPoints = 0, timesPerRound = 0;
 }
 
@@ -41,12 +46,12 @@ function startGame() {
         if (theWinner === 1) {
           playerPoints++;
           playerPointsEl.innerText = playerPoints;
-          showStatusEl.innerText = `Your ${currentPlayerChoiche} beats Computer's ${currentComputerChoiche} `;
+          showStatusEl.innerText = `${currentPlayerChoiche} beats Computer's ${currentComputerChoiche} `;
         }
         else if (theWinner === 0) {
           computerPoints++;
           computerPointsEl.innerText = computerPoints;
-          showStatusEl.innerText = `Computer ${currentComputerChoiche} beats you`;
+          showStatusEl.innerText = `Computer ${currentComputerChoiche} beats ${currentPlayerChoiche}`;
         }
         else if (theWinner === -1) {
           showStatusEl.innerText = `${currentComputerChoiche} = ${currentPlayerChoiche} `;
@@ -55,7 +60,9 @@ function startGame() {
       }
       if (timesPerRound === 5) {        
         showStatusEl.innerText = '';
-        if (playerPoints > computerPoints) headerWinnerEl.innerText = 'Player Won!'
+        if (playerPoints > computerPoints) {
+          headerWinnerEl.innerText = 'Player Won!'
+        }
         else if (playerPoints < computerPoints) headerWinnerEl.innerText = 'Computer Won!'
         else headerWinnerEl.innerText = 'Draw!';
         hiddenEl.classList.remove('hidden')
@@ -72,6 +79,8 @@ const computerPointsEl = document.querySelector('.computer-points');
 const showStatusEl = document.querySelector('.show-status');
 const hiddenEl = document.querySelector('.hidden');
 let timesPerRound = 0, playerPoints = 0, computerPoints = 0;
+let howManyTimesRematch = 0;
 
 btnResetEl.addEventListener('click', newGame);
+
 startGame();

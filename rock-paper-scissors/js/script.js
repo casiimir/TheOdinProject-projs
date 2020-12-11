@@ -29,7 +29,7 @@ function newGame() {
   howManyTimesRematch++;
 
   if (howManyTimesRematch % 4 === 0) {
-    headerWinnerEl.innerText = "🦆🎁🌹\nTanti cari auguri a te";
+    headerWinnerEl.innerText = "🦆🎁🌹";
   } 
   return playerPoints = 0, computerPoints = 0, timesPerRound = 0;
 }

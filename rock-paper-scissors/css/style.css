@@ -2,6 +2,7 @@
 
 * {
   font-family: 'Orbitron', sans-serif;
+  touch-action: manipulation;
 }
 
 h1 {

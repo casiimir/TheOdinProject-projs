@@ -1,7 +1,7 @@
 #canvas {  
   height: 260px;
   width: 260px;
-  margin: 0 auto;
+  margin: 35px auto;
   overflow: hidden;
   border: 2px solid grey;
   touch-action: manipulation;

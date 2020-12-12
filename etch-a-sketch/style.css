@@ -1,0 +1,25 @@
+#canvas {  
+  height: 260px;
+  width: 260px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 2px solid grey;
+  touch-action: manipulation;
+}
+
+.main-container {
+  height: 256px;
+  width: 256px;
+  background-color: ghostwhite;
+}
+
+.container {
+  background-color: aqua;
+}
+
+.square {
+  display: inline-block;
+  border: 1px solid white;
+  width: 32px;
+  height: 32px;
+}

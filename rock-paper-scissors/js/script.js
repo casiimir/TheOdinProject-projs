@@ -71,6 +71,8 @@ function startGame() {
   }  
 }
 
+
+// Init the game
 const btnChoicheEl = document.querySelectorAll('.btn-choiche');
 const btnResetEl = document.querySelector('.btn-reset');
 const headerWinnerEl = document.querySelector('.winner-is');

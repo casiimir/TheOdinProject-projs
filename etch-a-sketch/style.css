@@ -19,7 +19,69 @@
 
 .square {
   display: inline-block;
-  border: 1px solid white;
   width: 32px;
   height: 32px;
+}
+
+.square-grid {  
+  border: 1px solid white;
+}
+
+
+/* Buttons */
+.grid-button {
+  border: 1px solid;
+}
+.grid-button:hover {
+  color: white;
+  background-color: black;
+}
+
+li {
+  text-align: center;
+  margin: 15px;
+}
+
+.color {
+  background-color: black;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  border-radius: 5px;
+  border-width: 0;
+  box-shadow: 0 0 5px 2px rgb(216, 216, 216);
+}
+
+input::-webkit-color-swatch {
+  border: none;
+}
+
+/* Tools */
+.tools {
+  position: absolute;
+  top: 0;
+  left: -13.5%;
+}
+
+ul {  
+  list-style-type:none;
+}
+
+
+/* img tools */
+.btn {
+  width: 50px;
+  border: 1px solid wheat;
+}
+
+img {
+  width: 25px;
+}
+
+@media (min-width: 700px) {
+  .tools {
+    position: absolute;
+    top: 0;
+    left: 13.5%;
+  }
 }

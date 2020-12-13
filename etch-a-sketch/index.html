@@ -11,12 +11,43 @@
     <div id="canvas">
       <div class="main-container"></div>
     </div>
-    
-    <div class="text-center mt-2">
-      <button class="btn btn-primary">Clear</button>
-      <input class="color" type="color">
+    <div class="text-center m-3">
     </div>
 
-    <script src="./script.js"></script>
+    <div class="tools">
+      <ul>
+        <li class="item">
+          <button class="btn btn-pencil">
+            <img src="./pencil.png" alt="pencil-tool">
+          </button>
+        </li>
+        <li class="item">
+          <button class="btn btn-warning btn-rubber">
+            <img src="./eraser.png" alt="eraser-tool">
+          </button>
+        </li>
+        <li class="item">
+          <button class="btn btn-grid">
+            <img src="./grid.png" alt="grid-tool">
+          </button>
+        </li>
+        <li class="item">
+          <button class="btn btn-warning btn-fill">
+            <img src="./fill.png" alt="fill-tool">
+          </button>
+        </li>
+        <li class="item">
+          <button class="btn btn-warning btn-clear">
+            <img src="./clear.png" alt="clear-tool">
+          </button>
+        </li>
+        <li class="item asd">
+          <input class="color" type="color">
+        </li>
+      </ul>
+    </div>
+
+    <script src="./script.js" type="module"></script>
+    <script src="./tools.js" type="module"></script>
   </body>
 </html>

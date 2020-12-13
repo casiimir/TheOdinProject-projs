@@ -1,4 +1,5 @@
 function pencil () {
+
   const pickColor = document.querySelector('.color');
   let color = pickColor.value;
   pickColor.addEventListener('change', (e) => color = e.target.value);
@@ -52,4 +53,12 @@ function setColor () {
   pickColor.style.backgroundColor = color;
 }
 
-export { pencil, rubber, clear, showGrid, fill, setColor };
+function takeScreenshoot () {
+  let body = document.querySelector('body');
+  let div = document.querySelector('.main-container'); 
+
+  html2canvas(div)
+  .then(canvas => body.appendChild(canvas));
+}
+
+export { pencil, rubber, clear, showGrid, fill, setColor, takeScreenshoot };

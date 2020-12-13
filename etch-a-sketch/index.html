@@ -14,7 +14,8 @@
     <div class="text-center m-3">
     </div>
 
-    <div class="tools">
+    <!-- Tools left -->
+    <div class="tools-left">
       <ul>
         <li class="item">
           <button class="btn btn-pencil">
@@ -22,7 +23,7 @@
           </button>
         </li>
         <li class="item">
-          <button class="btn btn-warning btn-rubber">
+          <button class="btn btn-rubber">
             <img src="./eraser.png" alt="eraser-tool">
           </button>
         </li>
@@ -32,7 +33,7 @@
           </button>
         </li>
         <li class="item">
-          <button class="btn btn-warning btn-fill">
+          <button class="btn btn-fill">
             <img src="./fill.png" alt="fill-tool">
           </button>
         </li>
@@ -47,6 +48,34 @@
       </ul>
     </div>
 
+    <!-- Tools Right -->
+    <div class="tools-right">
+      <div class="text-arrow">
+        <p>Select a grid!</p>
+        <img class="arrow" src="./arrow.png" alt="arrow">
+      </div>
+      <ul>
+        <li class="item">
+          <button class="btn btn-select-grid" name="32">32x32</button>
+        </li>
+        <li class="item">
+          <button class="btn btn-select-grid" name="16">16x16</button>
+        </li>
+        <li class="item">
+          <button class="btn btn-select-grid" name="8">8x8</button>
+        </li>
+        <li class="item">
+          <button class="btn btn-select-grid" name="4">4x4</button>
+        </li>
+        <li class="item">
+          <button class="btn btn-take-screen">
+            <img src="./camera.png" alt="camera-tool">
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <script src="./html2canvas.min.js"></script> 
     <script src="./script.js" type="module"></script>
     <script src="./tools.js" type="module"></script>
   </body>

@@ -1,16 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* {
+  font-family: 'VT323', monospace;
+}
+
 #canvas {  
   height: 260px;
   width: 260px;
   margin: 35px auto;
   overflow: hidden;
-  border: 2px solid grey;
   touch-action: manipulation;
 }
 
 .main-container {
   height: 256px;
   width: 256px;
-  background-color: ghostwhite;
+  background: linear-gradient(to top left, rgba(187, 187, 187, 0.075) 50%,  rgba(0, 0, 0, 0.096) 100%);
 }
 
 .container {
@@ -57,16 +62,35 @@ input::-webkit-color-swatch {
 }
 
 /* Tools */
-.tools {
+.tools-left {
   position: absolute;
   top: 0;
   left: -13.5%;
 }
 
+.tools-right {
+  position: absolute;
+  top: 5%;
+  right: -3.5%;
+  margin: 0;
+  padding: 0;
+}
+.text-arrow {
+  font-size: 1em;
+  position: absolute;
+  top: -9%;
+  right: 25%;
+}
+.arrow {
+  transform: rotate(100deg);
+  position: relative;
+  left: 80%;
+  margin: -20px;
+}
+
 ul {  
   list-style-type:none;
 }
-
 
 /* img tools */
 .btn {
@@ -74,14 +98,31 @@ ul {
   border: 1px solid wheat;
 }
 
+.btn:focus {
+  background-color: orange;
+}
+
+.btn-select-grid {
+  width: auto;
+  border: 0;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-align: center;
+}
+
 img {
   width: 25px;
 }
 
 @media (min-width: 700px) {
-  .tools {
+  .tools-left {
     position: absolute;
     top: 0;
     left: 13.5%;
+  }
+  .tools-right {
+    position: absolute;
+    top: 0;
+    right: 13.5%;
   }
 }

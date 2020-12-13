@@ -1,5 +1,4 @@
 function pencil () {
-
   const pickColor = document.querySelector('.color');
   let color = pickColor.value;
   pickColor.addEventListener('change', (e) => color = e.target.value);
@@ -53,12 +52,22 @@ function setColor () {
   pickColor.style.backgroundColor = color;
 }
 
+
+
+// Function for the screenshoot
 function takeScreenshoot () {
   let body = document.querySelector('body');
   let div = document.querySelector('.main-container'); 
-
+  var data;
   html2canvas(div)
-  .then(canvas => body.appendChild(canvas));
+  .then(canvas => {
+    let link = document.createElement('a');
+    link.download = 'download.png';
+    link.href = canvas.toDataURL();
+    link.click();
+    link.delete;
+  });
+
 }
 
 export { pencil, rubber, clear, showGrid, fill, setColor, takeScreenshoot };

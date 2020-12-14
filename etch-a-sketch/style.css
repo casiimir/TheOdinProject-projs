@@ -4,18 +4,26 @@
   font-family: 'VT323', monospace;
 }
 
+body {
+  background-color: #f1dfd1;
+  background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%);
+}
+
 #canvas {  
-  height: 260px;
-  width: 260px;
   margin: 35px auto;
   overflow: hidden;
+  /* Remove the double tap zoom (mobile) */
   touch-action: manipulation;
+  /* Remove the draggable elements for the divs (desktop) */
+  user-select: none; 
 }
 
 .main-container {
+  margin: 25vh auto;
   height: 256px;
   width: 256px;
   background: linear-gradient(to top left, rgba(187, 187, 187, 0.075) 50%,  rgba(0, 0, 0, 0.096) 100%);
+  overflow: hidden;
 }
 
 .container {
@@ -29,7 +37,7 @@
 }
 
 .square-grid {  
-  border: 1px solid white;
+  border: 1px solid rgba(0, 0, 0, 0.075);
 }
 
 
@@ -44,13 +52,15 @@
 
 li {
   text-align: center;
-  margin: 15px;
+  margin: 2.5px;
+  display: inline-block;
+
 }
 
 .color {
   background-color: black;
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   margin: 0 auto;
   border-radius: 5px;
   border-width: 0;
@@ -62,43 +72,53 @@ input::-webkit-color-swatch {
 }
 
 /* Tools */
-.tools-left {
+.tools-up {
   position: absolute;
-  top: 0;
-  left: -13.5%;
+  width: 100%;
+  top: 23%;
+  left: 0;
+  margin: 0;
+  text-align: center;
 }
 
-.tools-right {
+.tools-bottom {
   position: absolute;
-  top: 5%;
-  right: -3.5%;
+  width: 100%;
+  top: 15%;
+  left: 0;
   margin: 0;
-  padding: 0;
+  text-align: center;
 }
 .text-arrow {
   font-size: 1em;
   position: absolute;
-  top: -9%;
-  right: 25%;
+  bottom: 60%;
+  right: 0;
 }
+
 .arrow {
-  transform: rotate(100deg);
+  transform: rotate(200deg);
   position: relative;
-  left: 80%;
+  left: 0;
   margin: -20px;
+  width: 35px;
 }
 
 ul {  
   list-style-type:none;
+  padding: 0;
 }
 
 /* img tools */
 .btn {
-  width: 50px;
-  border: 1px solid wheat;
+  width: auto;
 }
 
-.btn:focus {
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0.096);
+}
+
+.btn:active {
   background-color: orange;
 }
 
@@ -111,18 +131,5 @@ ul {
 }
 
 img {
-  width: 25px;
-}
-
-@media (min-width: 700px) {
-  .tools-left {
-    position: absolute;
-    top: 0;
-    left: 13.5%;
-  }
-  .tools-right {
-    position: absolute;
-    top: 0;
-    right: 13.5%;
-  }
+  width: 18px;
 }

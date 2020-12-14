@@ -8,7 +8,7 @@ function setCanvas (squaresDim) {
   }
 }
 
-function createGridOfSquares (squaresDim) {
+function setSquares (squaresDim) {
   const divs = document.querySelectorAll('.square');
   divs.forEach(div => {
     div.classList.add('square-grid');
@@ -20,7 +20,7 @@ function createGridOfSquares (squaresDim) {
 function init () {
   clear();
   setCanvas(squaresDim);
-  createGridOfSquares(squaresDim);
+  setSquares(squaresDim);
 }
 
 let squaresDim = 32;
@@ -53,7 +53,6 @@ buttonTakeScreen.addEventListener('click', () => takeScreenshoot());
 const buttonSelectGrid = document.querySelectorAll('.btn-select-grid');
 buttonSelectGrid.forEach(button => {
   button.addEventListener('click', (e) => {
-    console.log(e.target.name);
     switch (e.target.name - 0) {
       case 8:        
       squaresDim = 32;
@@ -71,4 +70,7 @@ buttonSelectGrid.forEach(button => {
     init();
   })
 });
+
+
+init();
 

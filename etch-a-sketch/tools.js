@@ -1,14 +1,47 @@
+// Active the button of the selected element
+// THIS CODE NEEDS REFACTORING!
+function activeTheButton (button){
+  const buttonElementClass = document.querySelector(`.${button}`);
+  buttonElementClass.style.backgroundColor = 'orange';
+}
+function deactivateTheButton (button){
+  const buttonElementClass = document.querySelector(`.${button}`);
+  buttonElementClass.style.backgroundColor = 'transparent';
+}
+
+
 function pencil () {
   const pickColor = document.querySelector('.color');
   let color = pickColor.value;
   pickColor.addEventListener('change', (e) => color = e.target.value);
 
+  // Active the button
+  // THIS NEEDS REFACTORING!
+  deactivateTheButton('btn-rubber');
+  activeTheButton('btn-pencil');
+
   const divs = document.querySelectorAll('.square');
   divs.forEach(div => {
-    div.addEventListener('click', (e) => {
+    div.addEventListener('click', () => {
       div.style.backgroundColor = color;
-    });
-  })
+    })
+  });
+  
+  // // Set drawing as dragging
+  // let isActive = false;
+  // const divs = document.querySelectorAll('.square');
+  // divs.forEach(div => {
+  //   div.addEventListener('mousedown', () => {
+  //     isActive = true;
+  //   })   
+  //   div.addEventListener('mouseup', () => {
+  //     isActive = false;
+  //   })
+  //   div.addEventListener('mouseover', () => {
+  //     if (isActive) div.style.backgroundColor = color;
+  //   })   
+  // })
+  // isActive = false;
 }
 
 function rubber () {
@@ -18,6 +51,12 @@ function rubber () {
       div.style.backgroundColor = 'transparent';
     });
   })
+
+  // Active the button
+  // THIS NEEDS REFACT.
+  deactivateTheButton('btn-pencil');
+  activeTheButton('btn-rubber');
+
 }
 
 function clear() {
@@ -51,8 +90,6 @@ function setColor () {
   let color = pickColor.value;
   pickColor.style.backgroundColor = color;
 }
-
-
 
 // Function for the screenshoot
 function takeScreenshoot () {

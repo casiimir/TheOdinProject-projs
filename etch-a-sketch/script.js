@@ -1,4 +1,7 @@
 import { pencil, rubber, clear, showGrid, fill, setColor, takeScreenshoot } from "./tools.js";
+import { sel } from "./palette.js";
+
+console.log(sel())
 
 function setCanvas (squaresDim) {
   for (let x = 1; x <= (256*256) / (squaresDim*squaresDim); x++) {

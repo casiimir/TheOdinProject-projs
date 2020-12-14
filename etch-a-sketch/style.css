@@ -133,3 +133,68 @@ ul {
 img {
   width: 18px;
 }
+
+
+
+.tester {
+  border: 2px solid red;
+}
+
+/* Palette */
+.palette-up {
+  position: relative;
+  bottom: 27.5%;
+  text-align: center;
+}
+
+.color-item {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50px;
+  border: 0;
+}
+
+.color-item:focus {
+  outline: none;
+  border: 2px solid black;
+}
+
+
+
+/* Colors one per one */
+.c-1 {
+  background-color: #0d2b45;
+}.c-2 {
+  background-color: #203c56;
+}.c-3 {
+  background-color: #544e68;
+}.c-4 {
+  background-color: #8d697a;
+}.c-5 {
+  background-color: #d08159;
+}.c-6 {
+  background-color: #ffaa5e;
+}.c-7 {
+  background-color: #ffd4a3;
+}.c-8 {
+  background-color: #ffecd6;
+}
+
+.c-9 {
+  background-color: #460198;
+}.c-10 {
+  background-color: #6a1794;
+}.c-11 {
+  background-color: #9e20b8;
+}.c-12 {
+  background-color: #c03b94;
+}.c-13 {
+  background-color: #ff88a9;
+}.c-14 {
+  background-color: #ffe0dc;
+}.c-15 {
+  background-color: #ffd4a3;
+}.c-16 {
+  background-color: #ffecd6;
+}

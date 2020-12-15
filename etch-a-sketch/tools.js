@@ -9,11 +9,27 @@ function deactivateTheButton (button){
   buttonElementClass.style.backgroundColor = 'transparent';
 }
 
-
 function pencil () {
-  const pickColor = document.querySelector('.color');
+  // Palette set color
+  function setColorsFromPalette () {
+    const paletteBtn = document.querySelector('label');
+    const palette = document.querySelectorAll('.color-item');
+    palette.forEach(element => {
+      element.addEventListener('click', () => {
+        paletteBtn.style.backgroundColor = element.getAttribute('color')
+        color = element.getAttribute('color')
+      })
+    })
+  }
+  setColorsFromPalette();
+
+  const pickColor = document.querySelector('label');
   let color = pickColor.value;
-  pickColor.addEventListener('change', (e) => color = e.target.value);
+
+  pickColor.addEventListener('input', (e) => {
+    color = e.target.value;
+    pickColor.style.backgroundColor = color
+  });
 
   // Active the button
   // THIS NEEDS REFACTORING!
@@ -26,7 +42,7 @@ function pencil () {
       div.style.backgroundColor = color;
     })
   });
-  
+
   // // Set drawing as dragging
   // let isActive = false;
   // const divs = document.querySelectorAll('.square');
@@ -42,6 +58,7 @@ function pencil () {
   //   })   
   // })
   // isActive = false;
+
 }
 
 function rubber () {
@@ -56,7 +73,6 @@ function rubber () {
   // THIS NEEDS REFACT.
   deactivateTheButton('btn-pencil');
   activeTheButton('btn-rubber');
-
 }
 
 function clear() {

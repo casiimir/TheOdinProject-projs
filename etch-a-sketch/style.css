@@ -6,17 +6,17 @@
 
 body {
   background-image: linear-gradient(315deg, #dacabf 30%, #f7f3f0 94%);
-  height: 100vh;
   overflow: hidden;
 }
 
 #canvas {  
-  margin: 35px auto;
+  margin: 0 auto;
   overflow: hidden;
   /* Remove the double tap zoom (mobile) */
   touch-action: manipulation;
   /* Remove the draggable elements for the divs (desktop) */
-  user-select: none; 
+  user-select: none;
+  height: 100vh;
 }
 
 .main-container {
@@ -87,7 +87,7 @@ input::-webkit-color-swatch {
 .tools-up {
   position: absolute;
   width: 100%;
-  top: 23%;
+  top: 17%;
   left: 0;
   margin: 0;
   text-align: center;
@@ -96,7 +96,7 @@ input::-webkit-color-swatch {
 .tools-bottom {
   position: absolute;
   width: 100%;
-  top: 15%;
+  top: 10%;
   left: 0;
   margin: 0;
   text-align: center;
@@ -154,7 +154,7 @@ img {
 .palette {
   margin-top: 10px;
   position: relative;
-  bottom: 26.5%;
+  bottom: 34%;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -173,6 +173,10 @@ img {
   border: 2px solid black;
 }
 
+
+footer {
+  margin-top: 25px;
+}
 
 
 /* Colors one per one */
@@ -210,4 +214,15 @@ img {
   background-color: #ffd4a3;
 }.c-16 {
   background-color: #ffecd6;
+}
+
+@media (min-width: 400px) {
+  .palette {
+    margin-top: 10px;
+    position: relative;
+    bottom: 46%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
 }

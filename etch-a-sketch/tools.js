@@ -98,6 +98,10 @@ function fill () {
   let color = pickColor.style.backgroundColor;
   pickColor.addEventListener('change', (e) => color = e.target.value);
 
+  // Fix for the first color selection, becouse label is not the input
+  // and doesn't have the value
+  if(pickColor.style.backgroundColor === '') color = 'white'
+
   const divs = document.querySelectorAll('.square'); 
   divs.forEach(div => {
     div.style.backgroundColor = color;

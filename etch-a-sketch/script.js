@@ -20,8 +20,8 @@ function setSquares (squaresDim) {
 function init () {
   clear();
   setCanvas(squaresDim);
-  pencil();
   setSquares(squaresDim);
+  pencil();
 }
 
 let squaresDim = 32;

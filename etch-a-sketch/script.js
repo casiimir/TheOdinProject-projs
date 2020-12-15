@@ -58,21 +58,24 @@ buttonTakeScreen.addEventListener('click', () => takeScreenshoot());
 const buttonSelectGrid = document.querySelectorAll('.btn-select-grid');
 buttonSelectGrid.forEach(button => {
   button.addEventListener('click', (e) => {
-    switch (e.target.name - 0) {
-      case 8:        
-      squaresDim = 32;
-      break;
-      case 16:
-        squaresDim = 16;        
+    const conf = confirm("Are you sure? You'll miss your draw ...");
+    if (conf) {
+      switch (e.target.name - 0) {
+        case 8:        
+        squaresDim = 32;
         break;
-      case 32:
-        squaresDim = 8;     
-        break;
-      case 4:
-        squaresDim = 64;     
-        break;
+        case 16:
+          squaresDim = 16;        
+          break;
+        case 32:
+          squaresDim = 8;     
+          break;
+        case 4:
+          squaresDim = 64;     
+          break;
+      }
+      init();
     }
-    init();
   })
 });
 

@@ -29,7 +29,10 @@ let squaresDim = 32;
 const mainContainer = document.querySelector('.main-container');
 
 const buttonClear = document.querySelector('.btn-clear');
-buttonClear.addEventListener('click', () => clear());
+buttonClear.addEventListener('click', () => {
+  const conf = confirm("Are you sure? You'll miss your draw ...");
+  if (conf) clear();
+});
 
 const buttonPencil = document.querySelector('.btn-pencil');
 buttonPencil.addEventListener('click', () => pencil());
@@ -43,6 +46,7 @@ buttonGrid.addEventListener('click', () => showGrid());
 const buttonFill = document.querySelector('.btn-fill');
 buttonFill.addEventListener('click', () => fill());
 
+// Maybe useless
 const buttonColor = document.querySelector('.color');
 buttonColor.addEventListener('change', () => setColor());
 

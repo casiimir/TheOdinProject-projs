@@ -4,6 +4,7 @@ function activeTheButton (button){
   const buttonElementClass = document.querySelector(`.${button}`);
   buttonElementClass.style.backgroundColor = 'orange';
 }
+
 function deactivateTheButton (button){
   const buttonElementClass = document.querySelector(`.${button}`);
   buttonElementClass.style.backgroundColor = 'transparent';
@@ -24,7 +25,11 @@ function pencil () {
   setColorsFromPalette();
 
   const pickColor = document.querySelector('label');
-  let color = pickColor.value;
+  let color = pickColor.style.backgroundColor;
+  // Fix for the first color selection, becouse label is not the input
+  // and doesn't have the value
+  if(pickColor.style.backgroundColor === '') color = 'white'
+
 
   pickColor.addEventListener('input', (e) => {
     color = e.target.value;
@@ -42,7 +47,6 @@ function pencil () {
       div.style.backgroundColor = color;
     })
   });
-
   // // Set drawing as dragging
   // let isActive = false;
   // const divs = document.querySelectorAll('.square');
@@ -90,8 +94,8 @@ function showGrid() {
 }
 
 function fill () {  
-  const pickColor = document.querySelector('.color');
-  let color = pickColor.value;
+  const pickColor = document.querySelector('label');
+  let color = pickColor.style.backgroundColor;
   pickColor.addEventListener('change', (e) => color = e.target.value);
 
   const divs = document.querySelectorAll('.square'); 
@@ -100,6 +104,7 @@ function fill () {
   })
 }
 
+// Maybe useless
 function setColor () {  
   const pickColor = document.querySelector('.color'); 
   pickColor.addEventListener('change', (e) => color = e.target.value); 

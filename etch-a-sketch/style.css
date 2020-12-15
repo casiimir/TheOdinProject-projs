@@ -59,18 +59,19 @@ li {
 .color {
   visibility: hidden;
   background-color: black;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   margin: 0 auto;
   border-radius: 5px;
   border-width: 0;
   box-shadow: 0 0 5px 2px rgb(216, 216, 216);
 } label {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background-color: white;
   border-radius: 50px;
   border: 0;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.205);
 }
 
 input::-webkit-color-swatch {
@@ -94,20 +95,6 @@ input::-webkit-color-swatch {
   left: 0;
   margin: 0;
   text-align: center;
-}
-.text-arrow {
-  font-size: 1em;
-  position: absolute;
-  bottom: 60%;
-  right: 0;
-}
-
-.arrow {
-  transform: rotate(200deg);
-  position: relative;
-  left: 0;
-  margin: -20px;
-  width: 35px;
 }
 
 ul {  
@@ -140,6 +127,14 @@ img {
   width: 18px;
 }
 
+
+.btn-take-screen {
+  margin-top: 0;
+  width: 50px;
+  height: 50px;
+  border: 1px solid grey;
+  border-radius: 50px;
+}
 
 
 .tester {

@@ -30,7 +30,7 @@ const mainContainer = document.querySelector('.main-container');
 
 const buttonClear = document.querySelector('.btn-clear');
 buttonClear.addEventListener('click', () => {
-  const conf = confirm("Are you sure? You'll miss your draw ...");
+  const conf = confirm("Are you sure? You'll lose your drawing...");
   if (conf) clear();
 });
 
@@ -58,7 +58,7 @@ buttonTakeScreen.addEventListener('click', () => takeScreenshoot());
 const buttonSelectGrid = document.querySelectorAll('.btn-select-grid');
 buttonSelectGrid.forEach(button => {
   button.addEventListener('click', (e) => {
-    const conf = confirm("Are you sure? You'll miss your draw ...");
+    const conf = confirm("Are you sure? You'll lose your drawing...");
     if (conf) {
       switch (e.target.name - 0) {
         case 8:        

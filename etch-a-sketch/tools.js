@@ -2,7 +2,7 @@
 // THIS CODE NEEDS REFACTORING!
 function activeTheButton (button){
   const buttonElementClass = document.querySelector(`.${button}`);
-  buttonElementClass.style.backgroundColor = 'orange';
+  buttonElementClass.style.backgroundColor = '#ff9a76';
 }
 
 function deactivateTheButton (button){
@@ -14,7 +14,7 @@ function pencil () {
   // Palette set color
   function setColorsFromPalette () {
     const paletteBtn = document.querySelector('label');
-    const palette = document.querySelectorAll('.color-item');
+    const palette = document.querySelectorAll('.palette-item');
     palette.forEach(element => {
       element.addEventListener('click', () => {
         paletteBtn.style.backgroundColor = element.getAttribute('color')
@@ -110,7 +110,7 @@ function fill () {
 
 // Maybe useless
 function setColor () {  
-  const pickColor = document.querySelector('.color'); 
+  const pickColor = document.querySelector('.btn-color'); 
   pickColor.addEventListener('change', (e) => color = e.target.value); 
   let color = pickColor.value;
   pickColor.style.backgroundColor = color;
@@ -119,7 +119,7 @@ function setColor () {
 // Function for the screenshoot
 function takeScreenshoot () {
   let body = document.querySelector('body');
-  let div = document.querySelector('.main-container'); 
+  let div = document.querySelector('.canvas'); 
   var data;
   html2canvas(div)
   .then(canvas => {

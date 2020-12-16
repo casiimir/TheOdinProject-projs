@@ -1,7 +1,9 @@
 import { pencil, rubber, clear, showGrid, fill, setColor, takeScreenshoot } from "./tools.js";
 
 function setCanvas (squaresDim) {
-  for (let x = 1; x <= (256*256) / (squaresDim*squaresDim); x++) {
+  console.log(squaresDim, dimGrid)
+  console.log((dimGrid**2) / (squaresDim*squaresDim))
+  for (let x = 1; x <= (dimGrid**2) / (squaresDim*squaresDim); x++) {
     const div = document.createElement('div');
     div.classList.add('square');
     mainContainer.appendChild(div);
@@ -24,9 +26,10 @@ function init () {
   pencil();
 }
 
+let dimGrid = 256;
 let squaresDim = 32;
 // Get all elements from the DOM
-const mainContainer = document.querySelector('.main-container');
+const mainContainer = document.querySelector('.canvas');
 
 const buttonClear = document.querySelector('.btn-clear');
 buttonClear.addEventListener('click', () => {
@@ -47,7 +50,7 @@ const buttonFill = document.querySelector('.btn-fill');
 buttonFill.addEventListener('click', () => fill());
 
 // Maybe useless
-const buttonColor = document.querySelector('.color');
+const buttonColor = document.querySelector('.btn-color');
 buttonColor.addEventListener('change', () => setColor());
 
 // Take screenshoot
@@ -58,22 +61,10 @@ buttonTakeScreen.addEventListener('click', () => takeScreenshoot());
 const buttonSelectGrid = document.querySelectorAll('.btn-select-grid');
 buttonSelectGrid.forEach(button => {
   button.addEventListener('click', (e) => {
-    const conf = confirm("Are you sure? You'll lose your drawing...");
-    if (conf) {
-      switch (e.target.name - 0) {
-        case 8:        
-        squaresDim = 32;
-        break;
-        case 16:
-          squaresDim = 16;        
-          break;
-        case 32:
-          squaresDim = 8;     
-          break;
-        case 4:
-          squaresDim = 64;     
-          break;
-      }
+    const eventButtonName = e.target.name;
+    const confirmClean = confirm("Are you sure? You'll lose your drawing...");
+    if (confirmClean) { 
+      squaresDim = dimGrid/eventButtonName;
       init();
     }
   })

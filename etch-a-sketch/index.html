@@ -3,135 +3,130 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>| Etch a BitSketch |</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" type="image/png" href="./favicon.png">
   </head>
 
   <body>
-    <div id="canvas">
-      <div class="main-container"></div>
-    </div>
-    <div class="text-center m-3">
-    </div>
+  <!-- First toolbar -->
+  <div class="grids-list">
+    <ul>
+      <li class="item">
+        <button class="btn btn-select-grid shadow-none" name="32">32x32</button>
+      </li>
+      <li class="item">
+        <button class="btn btn-select-grid shadow-none" name="16">16x16</button>
+      </li>
+      <li class="item">
+        <button class="btn btn-select-grid shadow-none" name="8">8x8</button>
+      </li>
+      <li class="item">
+        <button class="btn btn-select-grid shadow-none" name="4">4x4</button>
+      </li>
+    </ul>
+  </div>
+  <!-- Second toolbar -->
+  <div class="tools-list">
+    <ul>
+      <li class="item">
+        <button class="btn btn-pencil shadow-none">
+          <img src="./pencil.png" alt="pencil-tool">
+        </button>
+      </li>
+      <li class="item">
+        <button class="btn btn-rubber shadow-none">
+          <img src="./eraser.png" alt="eraser-tool">
+        </button>
+      </li>
+      <li class="item">
+        <button class="btn btn-grid shadow-none">
+          <img src="./grid.png" alt="grid-tool">
+        </button>
+      </li>
+      <li class="item">
+        <button class="btn btn-fill shadow-none">
+          <img src="./fill.png" alt="fill-tool">
+        </button>
+      </li>
+      <li class="item">
+        <button class="btn btn-clear shadow-none">
+          <img src="./clear.png" alt="clear-tool">
+        </button>
+      </li>
+      <li class="item">
+        <label>
+          <input class="btn-color" type="color">
+        </label>
+      </li>
+    </ul>
+  </div>
+  <!-- Canvas -->
+  <div class="container">
+    <div class="canvas"></div>
+  </div>
+  <!-- Palette N.1 -->
+  <div class="palette">
+    <ul>
+      <li class="item">
+        <button class="palette-item c-1" color="#0d2b45"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-2" color="#203c56"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-3" color="#544e68"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-4" color="#8d697a"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-5" color="#d08159"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-6" color="#ffaa5e"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-7" color="#ffd4a3"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-8" color="#ffecd6"></button>
+      </li>
+    </ul>
+  </div>
 
-    <!-- Tools left -->
-    <div class="tools-up">
-      <ul>
-        <li class="item">
-          <button class="btn btn-pencil">
-            <img src="./pencil.png" alt="pencil-tool">
-          </button>
-        </li>
-        <li class="item">
-          <button class="btn btn-rubber">
-            <img src="./eraser.png" alt="eraser-tool">
-          </button>
-        </li>
-        <li class="item">
-          <button class="btn btn-grid">
-            <img src="./grid.png" alt="grid-tool">
-          </button>
-        </li>
-        <li class="item">
-          <button class="btn btn-fill">
-            <img src="./fill.png" alt="fill-tool">
-          </button>
-        </li>
-        <li class="item">
-          <button class="btn btn-clear">
-            <img src="./clear.png" alt="clear-tool">
-          </button>
-        </li>
-        <li class="item asd">
-          <label>
-            <input class="color" type="color">
-          </label>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Tools Right -->
-    <div class="tools-bottom">
-      <ul>
-        <li class="item">
-          <button class="btn btn-select-grid" name="32">32x32</button>
-        </li>
-        <li class="item">
-          <button class="btn btn-select-grid" name="16">16x16</button>
-        </li>
-        <li class="item">
-          <button class="btn btn-select-grid" name="8">8x8</button>
-        </li>
-        <li class="item">
-          <button class="btn btn-select-grid" name="4">4x4</button>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Palette N.1 -->
-    <div class="palette">
-      <ul>
-        <li class="item">
-          <button class="color-item c-1" color="#0d2b45"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-2" color="#203c56"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-3" color="#544e68"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-4" color="#8d697a"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-5" color="#d08159"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-6" color="#ffaa5e"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-7" color="#ffd4a3"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-8" color="#ffecd6"></button>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Palette N.2 -->
-    <div class="palette">
-      <ul>
-        <li class="item">
-          <button class="color-item c-9" color="#460198"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-10" color="#6a1794"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-11" color="#9e20b8"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-12" color="#c03b94"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-13" color="#ff88a9"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-14" color="#ffd4a3"></button>
-        </li>
-        <li class="item">
-          <button class="color-item c-15" color="#ffecd6"></button>
-        </li>
-      </ul>    
-      <button class="btn btn-take-screen">
-        <img src="./camera.png" alt="camera-tool">
-      </button>
-      <footer>
-        by <a href="https://github.com/casiimir">Casiimir</a>
-      </footer>
-    </div>
-
+  <!-- Palette N.2 -->
+  <div class="palette">
+    <ul>
+      <li class="item">
+        <button class="palette-item c-9" color="#460198"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-10" color="#6a1794"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-11" color="#9e20b8"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-12" color="#c03b94"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-13" color="#ff88a9"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-14" color="#ffd4a3"></button>
+      </li>
+      <li class="item">
+        <button class="palette-item c-15" color="#ffecd6"></button>
+      </li>
+    </ul>    
+    <button class="btn btn-take-screen">
+      <img src="./camera.png" alt="camera-tool">
+    </button>
+    <footer>
+      by <a href="https://github.com/casiimir">Casiimir</a>
+    </footer>
+  </div>
 
 
     <script src="./html2canvas.min.js"></script> 

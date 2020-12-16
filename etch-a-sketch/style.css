@@ -33,9 +33,6 @@ body, html {
 body {
   overflow: hidden;
   height: 100vh;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */ 
 }
 
 footer {

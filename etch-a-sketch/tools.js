@@ -1,135 +1,154 @@
+// changeColorOnClickForEachSingle gets an element and set the properly color var
+// foreach element (it accepts querySelectorAll) and add eventListener 
+function changeColorOnClickForEachSingle(element, color, needEventListener) {
+  const elements = document.querySelectorAll(element);
+  if (needEventListener) {
+    elements.forEach(el => {
+      el.addEventListener('click', () => {
+        el.style.backgroundColor = color;
+      })
+    });
+  } else {
+    elements.forEach(el => el.style.backgroundColor = color);
+  }
+}
 // Active the button of the selected element
-// THIS CODE NEEDS REFACTORING!
+// Refactoring this
 function activeTheButton (button){
   const buttonElementClass = document.querySelector(`.${button}`);
   buttonElementClass.style.backgroundColor = '#ff9a76';
 }
-
 function deactivateTheButton (button){
   const buttonElementClass = document.querySelector(`.${button}`);
   buttonElementClass.style.backgroundColor = 'transparent';
 }
 
-function pencil () {
+// Desktop drag-and-draw
+function clickAndDrag (color) {
+  if (!isMobile) {
+    let isActive = false;
+    const divs = document.querySelectorAll('.square');
+    divs.forEach(div => {
+      div.addEventListener('mousedown', () => {
+        isActive = true;
+        div.style.backgroundColor = color;
+      })   
+      div.addEventListener('mouseup', () => {
+        isActive = false;
+      })
+      div.addEventListener('mouseover', () => {
+        if (isActive) div.style.backgroundColor = color;
+      })   
+    })
+    isActive = false;
+  }
+}
+
+function pencilTool () {
   // Palette set color
   function setColorsFromPalette () {
-    const paletteBtn = document.querySelector('label');
-    const palette = document.querySelectorAll('.palette-item');
-    palette.forEach(element => {
+    paletteEls.forEach(element => {
       element.addEventListener('click', () => {
-        paletteBtn.style.backgroundColor = element.getAttribute('color')
+        paletteBtnEl.style.backgroundColor = element.getAttribute('color');
         color = element.getAttribute('color')
+        changeColorOnClickForEachSingle('.square', color, true);
+        // Refactoring this
+        deactivateTheButton('btn-rubber');
+        activeTheButton('btn-pencil');
+        
+        // Drag-and-draw
+        clickAndDrag(color);
       })
     })
   }
+  
   setColorsFromPalette();
-
-  const pickColor = document.querySelector('label');
-  let color = pickColor.style.backgroundColor;
+  let color = paletteBtnEl.style.backgroundColor;
   // Fix for the first color selection, becouse label is not the input
   // and doesn't have the value
-  if(pickColor.style.backgroundColor === '') color = 'white'
-
-
-  pickColor.addEventListener('input', (e) => {
+  if(!color) color = 'white';
+  changeColorOnClickForEachSingle('.square', color, true);
+  paletteBtnEl.addEventListener('input', (e) => {
     color = e.target.value;
-    pickColor.style.backgroundColor = color
-  });
+    paletteBtnEl.style.backgroundColor = color;
+    changeColorOnClickForEachSingle('.square', color, true);
+    // Refactoring this
+    deactivateTheButton('btn-rubber');
+    activeTheButton('btn-pencil');
 
-  // Active the button
-  // THIS NEEDS REFACTORING!
+    // Drag-and-draw
+    clickAndDrag(color);
+  });
+  // Refactoring this
   deactivateTheButton('btn-rubber');
   activeTheButton('btn-pencil');
-
-  const divs = document.querySelectorAll('.square');
-  divs.forEach(div => {
-    div.addEventListener('click', () => {
-      div.style.backgroundColor = color;
-    })
-  });
-  // // Set drawing as dragging
-  // let isActive = false;
-  // const divs = document.querySelectorAll('.square');
-  // divs.forEach(div => {
-  //   div.addEventListener('mousedown', () => {
-  //     isActive = true;
-  //   })   
-  //   div.addEventListener('mouseup', () => {
-  //     isActive = false;
-  //   })
-  //   div.addEventListener('mouseover', () => {
-  //     if (isActive) div.style.backgroundColor = color;
-  //   })   
-  // })
-  // isActive = false;
-
+  
+  // Drag-and-draw
+  clickAndDrag(color);
 }
 
-function rubber () {
-  const divs = document.querySelectorAll('.square');
-  divs.forEach(div => {
-    div.addEventListener('click', () => {
-      div.style.backgroundColor = 'transparent';
-    });
-  })
-
-  // Active the button
-  // THIS NEEDS REFACT.
+function rubberTool () {
+  clickAndDrag('transparent');
+  changeColorOnClickForEachSingle('.square', 'transparent', true);
   deactivateTheButton('btn-pencil');
   activeTheButton('btn-rubber');
 }
 
-function clear() {
-  const divs = document.querySelectorAll('.square');
-  divs.forEach(div => {
-    div.style.backgroundColor = 'transparent';
-  })
+function clearTool() {
+  changeColorOnClickForEachSingle('.square', 'transparent', false);
 }
 
-function showGrid() {  
+function showGridTool() {  
   const divs = document.querySelectorAll('.square'); 
   divs.forEach(div => {
     div.classList.toggle('square-grid');
   })
 }
 
-function fill () {  
-  const pickColor = document.querySelector('label');
-  let color = pickColor.style.backgroundColor;
-  pickColor.addEventListener('change', (e) => color = e.target.value);
-
-  // Fix for the first color selection, becouse label is not the input
-  // and doesn't have the value
-  if(pickColor.style.backgroundColor === '') color = 'white'
-
-  const divs = document.querySelectorAll('.square'); 
-  divs.forEach(div => {
-    div.style.backgroundColor = color;
-  })
+function fillTool () {  
+  let color = paletteBtnEl.style.backgroundColor;
+  if(!color) color = 'white';
+  paletteBtnEl.addEventListener('change', (e) => color = e.target.value);
+  changeColorOnClickForEachSingle('.square', color, false);
 }
 
-// Maybe useless
-function setColor () {  
-  const pickColor = document.querySelector('.btn-color'); 
-  pickColor.addEventListener('change', (e) => color = e.target.value); 
-  let color = pickColor.value;
-  pickColor.style.backgroundColor = color;
-}
-
-// Function for the screenshoot
-function takeScreenshoot () {
-  let body = document.querySelector('body');
-  let div = document.querySelector('.canvas'); 
-  var data;
-  html2canvas(div)
+function screenshootTool () {
+  const fileName = prompt("File name: ");
+  html2canvas(canvasEl)
   .then(canvas => {
     let link = document.createElement('a');
-    link.download = 'download.png';
+    link.download = `${fileName}.png`;
     link.href = canvas.toDataURL();
     link.click();
     link.delete;
   });
-
 }
 
-export { pencil, rubber, clear, showGrid, fill, setColor, takeScreenshoot };
+const paletteEls = document.querySelectorAll('.palette-item');
+const paletteBtnEl = document.querySelector('.color-label');
+const canvasEl = document.querySelector('.canvas');
+const isMobile = /Iphone|iPad|iPod|Android|BlackBerry|IEMobile/i.test(window.navigator.userAgent);
+
+export { pencilTool, rubberTool, clearTool, showGridTool, fillTool, screenshootTool };
+
+
+
+
+// if (isMobile) {
+//   // Set drawing holding on click (only Desktop - check 'isMobile')
+//   let isActive = false;
+//   const divs = document.querySelectorAll('.square');
+//   divs.forEach(div => {
+//     div.addEventListener('mousedown', () => {
+//       isActive = true;
+//       div.style.backgroundColor = color;
+//     })   
+//     div.addEventListener('mouseup', () => {
+//       isActive = false;
+//     })
+//     div.addEventListener('mouseover', () => {
+//       if (isActive) div.style.backgroundColor = color;
+//     })   
+//   })
+//   isActive = false;
+// }

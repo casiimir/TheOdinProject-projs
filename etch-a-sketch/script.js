@@ -1,61 +1,56 @@
-import { pencil, rubber, clear, showGrid, fill, setColor, takeScreenshoot } from "./tools.js";
+import { pencilTool, rubberTool, clearTool, showGridTool, fillTool, screenshootTool } from "./tools.js";
 
-function setCanvas (squaresDim) {
-  console.log(squaresDim, dimGrid)
-  console.log((dimGrid**2) / (squaresDim*squaresDim))
-  for (let x = 1; x <= (dimGrid**2) / (squaresDim*squaresDim); x++) {
+function setCanvas (dimSquare) {
+  const numOfSquares = ((dimGrid/dimSquare)**2);
+  for (let x = 1; x <= numOfSquares; x++) {
     const div = document.createElement('div');
     div.classList.add('square');
     mainContainer.appendChild(div);
   }
 }
 
-function setSquares (squaresDim) {
+function setSquares (dimSquare) {
   const divs = document.querySelectorAll('.square');
   divs.forEach(div => {
     div.classList.add('square-grid');
-    div.style.width = `${squaresDim}px`;
-    div.style.height = `${squaresDim}px`;
+    div.style.width = `${dimSquare}px`;
+    div.style.height = `${dimSquare}px`;
   })
 }
 
 function init () {
-  clear();
-  setCanvas(squaresDim);
-  setSquares(squaresDim);
-  pencil();
+  clearTool();
+  setCanvas(dimSquare);
+  setSquares(dimSquare);
+  pencilTool();
 }
 
 let dimGrid = 256;
-let squaresDim = 32;
+let dimSquare = 32;
 // Get all elements from the DOM
 const mainContainer = document.querySelector('.canvas');
 
 const buttonClear = document.querySelector('.btn-clear');
 buttonClear.addEventListener('click', () => {
   const conf = confirm("Are you sure? You'll lose your drawing...");
-  if (conf) clear();
+  if (conf) clearTool();
 });
 
 const buttonPencil = document.querySelector('.btn-pencil');
-buttonPencil.addEventListener('click', () => pencil());
+buttonPencil.addEventListener('click', () => pencilTool());
 
 const buttonRubber = document.querySelector('.btn-rubber');
-buttonRubber.addEventListener('click', () => rubber());
+buttonRubber.addEventListener('click', () => rubberTool());
 
 const buttonGrid = document.querySelector('.btn-grid');
-buttonGrid.addEventListener('click', () => showGrid());
+buttonGrid.addEventListener('click', () => showGridTool());
 
 const buttonFill = document.querySelector('.btn-fill');
-buttonFill.addEventListener('click', () => fill());
-
-// Maybe useless
-const buttonColor = document.querySelector('.btn-color');
-buttonColor.addEventListener('change', () => setColor());
+buttonFill.addEventListener('click', () => fillTool());
 
 // Take screenshoot
 const buttonTakeScreen = document.querySelector('.btn-take-screen');
-buttonTakeScreen.addEventListener('click', () => takeScreenshoot());
+buttonTakeScreen.addEventListener('click', () => screenshootTool());
 
 // Choiche a grid from the right panel and init the sketchpad
 const buttonSelectGrid = document.querySelectorAll('.btn-select-grid');
@@ -63,13 +58,20 @@ buttonSelectGrid.forEach(button => {
   button.addEventListener('click', (e) => {
     const eventButtonName = e.target.name;
     const confirmClean = confirm("Are you sure? You'll lose your drawing...");
-    if (confirmClean) { 
-      squaresDim = dimGrid/eventButtonName;
+    
+    if (confirmClean) {
+      
+      // It needs remove present divs too (reset the number or squares):
+      const divs = document.querySelectorAll('.square');
+      divs.forEach(div => div.remove());
+
+      dimSquare = dimGrid/eventButtonName;
       init();
     }
   })
+  
+
 });
 
 
-init();
-
+init(); // Start the play! ;)

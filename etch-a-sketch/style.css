@@ -10,13 +10,11 @@
   font-family: 'VT323', monospace;
   /* Remove the draggable elements for the divs (desktop) */
   user-select: none;
-  /* Remove the double tap zoom (mobile) */
-  touch-action: manipulation;
 }
 
 body, html {
   /* Fixing the layout useful for block any sroll in the page (mobile) */
-  position: fixed;
+
   top: 0;
   bottom: 0;
   left: 0;
@@ -24,6 +22,9 @@ body, html {
   margin: auto;
   padding: 0;
   background-image: linear-gradient(315deg, #d1c3d3, #f3f3f3 94%);
+  /* Remove the double tap zoom (mobile) */
+  /* touch-action: manipulation; */
+  touch-action: pan-x pan-y pinch-zoom;
 }
 
 .tester{
